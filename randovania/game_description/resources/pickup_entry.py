@@ -99,7 +99,3 @@ class PickupEntry:
     def all_resources(self) -> Iterator[ResourceQuantity]:
         for conditional in self.resources:
             yield from conditional.resources
-
-    @property
-    def is_expansion(self) -> bool:
-        return self.item_category == ItemCategory.EXPANSION

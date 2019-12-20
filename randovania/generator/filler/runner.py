@@ -29,7 +29,7 @@ def _split_expansions(item_pool: List[PickupEntry]) -> Tuple[List[PickupEntry], 
     expansions = []
 
     for pickup in item_pool:
-        if pickup.item_category == ItemCategory.EXPANSION:
+        if pickup.item_category.is_expansion:
             expansions.append(pickup)
         else:
             major_items.append(pickup)

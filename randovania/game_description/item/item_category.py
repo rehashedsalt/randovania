@@ -24,6 +24,10 @@ class ItemCategory(BitPackEnum, Enum):
         return self in MAJOR_ITEM_CATEGORIES
 
     @property
+    def is_expansion(self) -> bool:
+        return self == ItemCategory.EXPANSION
+
+    @property
     def is_key(self) -> bool:
         return self in TEMPLE_KEY_CATEGORIES
 

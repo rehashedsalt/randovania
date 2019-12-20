@@ -102,7 +102,7 @@ def _get_jingle_index_for(category: ItemCategory) -> int:
 
 
 def _pickup_scan(pickup: PickupEntry) -> str:
-    if pickup.item_category != ItemCategory.EXPANSION:
+    if not pickup.item_category.is_expansion:
         if len(pickup.resources) > 1 and all(conditional.name is not None for conditional in pickup.resources):
             return "{}. Provides the following in order: {}".format(
                 pickup.name, ", ".join(conditional.name for conditional in pickup.resources))
