@@ -229,6 +229,7 @@ ConstructNode = Struct(
                 scan_asset_id=If(lambda this: this._has_scan_asset_id, Int32ub),
                 keep_name_when_vanilla=Flag,
                 editable=Flag,
+                requires_visit_to_world=Flag,
             ),
             "event": Struct(
                 event_index=Byte,

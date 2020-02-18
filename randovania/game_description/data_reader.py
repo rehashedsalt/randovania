@@ -187,6 +187,7 @@ class WorldReader:
                                   data["scan_asset_id"],
                                   data["keep_name_when_vanilla"],
                                   data["editable"],
+                                  data["requires_visit_to_world"],
                                   )
 
         elif node_type == "event":

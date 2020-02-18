@@ -71,6 +71,7 @@ class TeleporterNode(Node):
     scan_asset_id: Optional[str]
     keep_name_when_vanilla: bool
     editable: bool
+    requires_visit_to_world: bool
 
     def __repr__(self):
         return "TeleporterNode({!r} -> {})".format(self.name, self.default_connection)
