@@ -1,15 +1,17 @@
 import argparse
-import csv
+import collections
+import copy
 import json
 from argparse import ArgumentParser
 from pathlib import Path
-from typing import Dict, BinaryIO, Optional, TextIO, List, Any
+from typing import Dict, BinaryIO, Optional, TextIO, List, Any, Tuple
 
 from randovania.game_description import data_reader, data_writer
 from randovania.game_description.game_description import GameDescription
-from randovania.game_description.requirements import RequirementSet, RequirementList, ResourceRequirement
-from randovania.game_description.resources.resource_database import find_resource_info_with_long_name
-from randovania.game_description.resources.resource_info import ResourceInfo
+from randovania.game_description.requirements import RequirementSet, RequirementList, RequirementAnd, Requirement, \
+    ResourceRequirement
+from randovania.game_description.resources.resource_info import ResourceInfo, CurrentResources
+from randovania.game_description.resources.resource_type import ResourceType
 from randovania.games.prime import binary_data, default_data
 from randovania.resolver import debug
 
@@ -279,27 +281,118 @@ def list_paths_with_difficulty_command(sub_parsers):
     parser.set_defaults(func=list_paths_with_difficulty_logic)
 
 
+def add_all_items(resources: CurrentResources, alternative: RequirementList) -> CurrentResources:
+    result = copy.copy(resources)
+    for item in alternative.items:
+        if item.resource.resource_type == ResourceType.ITEM and not item.negate:
+            result[item.resource] = max(resources.get(item.resource, 0), item.amount)
+    return result
+
+
+def is_strictly_better(new: CurrentResources, old: CurrentResources):
+    for resource, quantity in new.items():
+        if old.get(resource, 0) < quantity:
+            return False
+    return True
+
+
 def list_paths_with_resource_logic(args):
     gd = load_game_description(args)
 
-    resource = None
-    for resource_type in gd.resource_database:
-        try:
-            resource = find_resource_info_with_long_name(resource_type, args.resource)
-            break
-        except ValueError:
-            continue
+    starting_area = gd.world_list.area_by_area_location(gd.starting_location)
+    starting_node = starting_area.nodes[starting_area.default_node_index]
 
-    if resource is None:
-        print(f"A resource named {args.resource} was not found.")
-        raise SystemExit(1)
+    from randovania.resolver.bootstrap import logic_bootstrap
+    from randovania.interface_common.preset_manager import PresetManager
+    from randovania.game_description.game_patches import GamePatches
+    from randovania.generator.base_patches_factory import gate_assignment_for_configuration
+    from randovania.generator.item_pool import pool_creator
+    from randovania.game_description.node import Node, PickupNode, EventNode
 
-    _list_paths_with_resource(
-        gd,
-        args.print_only_area,
-        resource,
-        None
-    )
+    layout_config = PresetManager(None).default_preset.layout_configuration
+    patches = GamePatches.with_game(gd)
+    patches = patches.assign_gate_assignment(
+        gate_assignment_for_configuration(layout_config, gd.resource_database, None))
+    patches, _ = pool_creator.calculate_item_pool(layout_config, gd.resource_database, patches)
+
+    gd, state = logic_bootstrap(layout_config, gd, patches)
+
+    nodes: List[Tuple[Node, CurrentResources]] = [
+        (starting_node, {}),
+    ]
+
+    alternatives_to: Dict[Node, List[CurrentResources]] = collections.defaultdict(list)
+
+    def is_reasonable_path(node, resources):
+        alternatives = alternatives_to[node]
+
+        for alternative in alternatives:
+            if is_strictly_better(alternative, resources):
+                return False
+
+        alternatives_to[node] = [alternative for alternative in alternatives
+                                 if not is_strictly_better(resources, alternative)]
+        alternatives_to[node].append(resources)
+        return True
+
+    def loop():
+        while nodes:
+            node, resources = nodes.pop(0)
+
+            if not is_reasonable_path(node, resources):
+                continue
+
+            requirement_to_leave = node.requirement_to_leave(patches, resources)
+
+            for target_node, requirement in gd.world_list.potential_nodes_from(node, patches):
+                if requirement_to_leave != Requirement.trivial():
+                    requirement = RequirementAnd([requirement, requirement_to_leave])
+                requirement = requirement.patch_requirements(state.resources, 1)
+
+                for alternative in requirement.as_set.alternatives:
+                    new_resources = add_all_items(resources, alternative)
+                    if isinstance(node, EventNode):
+                        new_resources[node.event] = 1
+
+                    if requirement.satisfied(new_resources, 1500):
+                        nodes.append((target_node, new_resources))
+
+    def print_results():
+        for world, area, node in gd.world_list.all_worlds_areas_nodes:
+            if isinstance(node, PickupNode) and alternatives_to[node]:
+                print("\n>>>>>", gd.world_list.node_name(node, with_world=True, distinguish_dark_aether=True))
+
+                alternatives = RequirementSet([
+                    RequirementList([
+                        ResourceRequirement(resource, quantity, False)
+                        for resource, quantity in alternative.items()
+                        if resource.resource_type == ResourceType.ITEM
+                    ])
+                    for alternative in alternatives_to[node]
+                ])
+                alternatives.pretty_print()
+
+    loop()
+    print_results()
+
+    # resource = None
+    # for resource_type in gd.resource_database:
+    #     try:
+    #         resource = find_resource_info_with_long_name(resource_type, args.resource)
+    #         break
+    #     except ValueError:
+    #         continue
+    #
+    # if resource is None:
+    #     print(f"A resource named {args.resource} was not found.")
+    #     raise SystemExit(1)
+    #
+    # _list_paths_with_resource(
+    #     gd,
+    #     args.print_only_area,
+    #     resource,
+    #     None
+    # )
 
 
 def list_paths_with_resource_command(sub_parsers):
