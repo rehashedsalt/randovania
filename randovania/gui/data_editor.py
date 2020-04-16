@@ -12,6 +12,7 @@ from randovania.game_description.node import Node, DockNode, TeleporterNode, Gen
 from randovania.game_description.requirements import RequirementSet
 from randovania.game_description.world import World
 from randovania.gui.connections_visualizer import ConnectionsVisualizer
+from randovania.gui.dialog.area_location_dialog import AreaLocationDialog
 from randovania.gui.dialog.connections_editor import ConnectionsEditor
 from randovania.gui.generated.data_editor_ui import Ui_DataEditorWindow
 from randovania.gui.lib.common_qt_lib import set_default_window_icon
@@ -236,10 +237,21 @@ class DataEditorWindow(QMainWindow, Ui_DataEditorWindow):
         self.update_connections()
 
     def _prompt_save_database(self):
-        open_result = QFileDialog.getSaveFileName(self, caption="Select a Randovania database path.", filter="*.json")
+        if self.edit_mode:
+            open_result = QFileDialog.getSaveFileName(self, caption="Select a Randovania database path.",
+                                                      filter="*.json")
+        else:
+            open_result = QFileDialog.getOpenFileName(self, caption="Select image to be used for this area.")
+
         if not open_result or open_result == ("", ""):
             return
-        self._save_database(Path(open_result[0]))
+        path = Path(open_result[0])
+
+        if self.edit_mode:
+            self._save_database(path)
+        else:
+            dialog = AreaLocationDialog(self.current_area, path)
+            dialog.exec_()
 
     def _save_database(self, path: Path):
         data = data_writer.write_game_description(self.game_description)
@@ -291,7 +303,11 @@ class DataEditorWindow(QMainWindow, Ui_DataEditorWindow):
     def update_edit_mode(self):
         self.delete_node_button.setVisible(self.edit_mode)
         self.new_node_button.setVisible(self.edit_mode)
-        self.save_database_button.setVisible(self.edit_mode)
+        self.save_database_button.setText(
+            "Save database as" if self.edit_mode
+            else "Position nodes in an image"
+        )
+        # self.save_database_button.setVisible(self.edit_mode)
         self.other_node_connection_edit_button.setVisible(self.edit_mode)
         self.node_heals_check.setEnabled(self.edit_mode and False)
 
