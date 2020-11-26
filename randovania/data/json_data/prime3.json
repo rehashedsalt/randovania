@@ -743,6 +743,36 @@
                 "short_name": "Event62"
             },
             {
+                "index": 63,
+                "long_name": "Aurora Chamber Skytown Reloaded After Vaccine",
+                "short_name": "Event63"
+            },
+            {
+                "index": 64,
+                "long_name": "Aurora Lift Activated",
+                "short_name": "Event64"
+            },
+            {
+                "index": 65,
+                "long_name": "Ballista Lift Activated",
+                "short_name": "Event65"
+            },
+            {
+                "index": 66,
+                "long_name": "Barracks Lift Activated",
+                "short_name": "Event66"
+            },
+            {
+                "index": 67,
+                "long_name": "Observatory Lift Activated",
+                "short_name": "Event67"
+            },
+            {
+                "index": 68,
+                "long_name": "Landing Site A Unlocked",
+                "short_name": "Event68"
+            },
+            {
                 "index": 70,
                 "long_name": "Main Docking Access Phazon Vines",
                 "short_name": "Event70"
@@ -18140,13 +18170,27 @@
                                     ]
                                 },
                                 "Pickup (Plasma Beam)": {
-                                    "type": "resource",
-                                    "data": {
-                                        "type": 1,
-                                        "index": 8,
-                                        "amount": 1,
-                                        "negate": false
-                                    }
+                                    "type": "and",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 1,
+                                                "index": 8,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
                                 },
                                 "Samus Ship (Catch.)": {
                                     "type": "and",
@@ -18171,7 +18215,7 @@
                             "pickup_index": 51,
                             "major_location": false,
                             "connections": {
-                                "Samus Ship (Catch.)": {
+                                "Door to Main Docking Access": {
                                     "type": "and",
                                     "data": []
                                 }
@@ -18205,8 +18249,13 @@
                                     "type": "or",
                                     "data": [
                                         {
-                                            "type": "template",
-                                            "data": "Melt Objects (Plasma or Nova)"
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 1,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
                                         },
                                         {
                                             "type": "resource",
@@ -18240,7 +18289,7 @@
                     "name": "Zipline Station Alpha",
                     "in_dark_aether": false,
                     "asset_id": 201801993056581673,
-                    "default_node_index": null,
+                    "default_node_index": 0,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -18259,13 +18308,77 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Door to Arrival Station": {
-                                    "type": "resource",
-                                    "data": {
-                                        "type": 0,
-                                        "index": 8,
-                                        "amount": 1,
-                                        "negate": false
-                                    }
+                                    "type": "or",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 8,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "and",
+                                            "data": [
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 0,
+                                                        "index": 32,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 0,
+                                                        "index": 15,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 0,
+                                                        "index": 33,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 2,
+                                                        "index": 5,
+                                                        "amount": 5,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 2,
+                                                        "index": 15,
+                                                        "amount": 5,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 2,
+                                                        "index": 12,
+                                                        "amount": 5,
+                                                        "negate": false
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -18285,13 +18398,77 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Door to Main Docking Access": {
-                                    "type": "resource",
-                                    "data": {
-                                        "type": 0,
-                                        "index": 8,
-                                        "amount": 1,
-                                        "negate": false
-                                    }
+                                    "type": "or",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 8,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "and",
+                                            "data": [
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 0,
+                                                        "index": 15,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 0,
+                                                        "index": 32,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 0,
+                                                        "index": 33,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 2,
+                                                        "index": 5,
+                                                        "amount": 5,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 2,
+                                                        "index": 15,
+                                                        "amount": 5,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 2,
+                                                        "index": 12,
+                                                        "amount": 5,
+                                                        "negate": false
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 }
                             }
                         }
@@ -18301,7 +18478,7 @@
                     "name": "Arrival Station",
                     "in_dark_aether": false,
                     "asset_id": 14742980547553882067,
-                    "default_node_index": null,
+                    "default_node_index": 0,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -18319,9 +18496,23 @@
                             "dock_type": 0,
                             "dock_weakness_index": 0,
                             "connections": {
-                                "Door to Hub Access": {
-                                    "type": "and",
-                                    "data": []
+                                "Ledge": {
+                                    "type": "or",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 15,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "template",
+                                            "data": "Bomb Jump (Beginner) or Spring Space Jump (Beginner)"
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -18340,18 +18531,32 @@
                             "dock_type": 0,
                             "dock_weakness_index": 0,
                             "connections": {
-                                "Door to Zipline Station Alpha": {
-                                    "type": "and",
-                                    "data": []
-                                },
-                                "Pickup (Energy Tank)": {
-                                    "type": "resource",
-                                    "data": {
-                                        "type": 0,
-                                        "index": 33,
-                                        "amount": 1,
-                                        "negate": false
-                                    }
+                                "Ledge": {
+                                    "type": "or",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 15,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "template",
+                                            "data": "Bomb Jump (Beginner) or Spring Space Jump (Beginner)"
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 2,
+                                                "index": 11,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -18363,9 +18568,57 @@
                             "pickup_index": 53,
                             "major_location": false,
                             "connections": {
+                                "Ledge": {
+                                    "type": "and",
+                                    "data": []
+                                }
+                            }
+                        },
+                        {
+                            "name": "Ledge",
+                            "heal": false,
+                            "coordinates": null,
+                            "node_type": "generic",
+                            "connections": {
+                                "Door to Zipline Station Alpha": {
+                                    "type": "and",
+                                    "data": []
+                                },
                                 "Door to Hub Access": {
                                     "type": "and",
                                     "data": []
+                                },
+                                "Pickup (Energy Tank)": {
+                                    "type": "and",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 33,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 15,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         }
@@ -18375,7 +18628,7 @@
                     "name": "Barracks Access",
                     "in_dark_aether": false,
                     "asset_id": 4910606911885883821,
-                    "default_node_index": null,
+                    "default_node_index": 0,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -18398,8 +18651,13 @@
                                     "data": []
                                 },
                                 "Pickup (Missile Expansion)": {
-                                    "type": "and",
-                                    "data": []
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 0,
+                                        "index": 32,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
                                 }
                             }
                         },
@@ -18444,7 +18702,7 @@
                     "name": "Hub Access",
                     "in_dark_aether": false,
                     "asset_id": 11556115933702107376,
-                    "default_node_index": null,
+                    "default_node_index": 1,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -18495,7 +18753,7 @@
                     "name": "Barracks Lift",
                     "in_dark_aether": false,
                     "asset_id": 11193898588728046860,
-                    "default_node_index": null,
+                    "default_node_index": 1,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -18514,12 +18772,13 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Door to Steambot Barracks": {
-                                    "type": "and",
-                                    "data": []
-                                },
-                                "Door to Hoverplat Docking Site": {
-                                    "type": "and",
-                                    "data": []
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 1,
+                                        "index": 66,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
                                 }
                             }
                         },
@@ -18539,6 +18798,19 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Door to Zipline Station Bravo": {
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 1,
+                                        "index": 66,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
+                                },
+                                "Door to Hoverplat Docking Site": {
+                                    "type": "and",
+                                    "data": []
+                                },
+                                "Event - Lift Activated": {
                                     "type": "and",
                                     "data": []
                                 }
@@ -18559,7 +18831,19 @@
                             "dock_type": 0,
                             "dock_weakness_index": 0,
                             "connections": {
-                                "Door to Zipline Station Bravo": {
+                                "Door to Steambot Barracks": {
+                                    "type": "and",
+                                    "data": []
+                                }
+                            }
+                        },
+                        {
+                            "name": "Event - Lift Activated",
+                            "heal": false,
+                            "coordinates": null,
+                            "node_type": "generic",
+                            "connections": {
+                                "Door to Steambot Barracks": {
                                     "type": "and",
                                     "data": []
                                 }
@@ -18571,7 +18855,7 @@
                     "name": "Aurora Lift",
                     "in_dark_aether": false,
                     "asset_id": 9894117388493814037,
-                    "default_node_index": null,
+                    "default_node_index": 2,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -18589,13 +18873,37 @@
                             "dock_type": 0,
                             "dock_weakness_index": 0,
                             "connections": {
-                                "Door to Save Station A": {
-                                    "type": "and",
-                                    "data": []
-                                },
                                 "Door to Zipline Station Bravo": {
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 1,
+                                        "index": 64,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
+                                },
+                                "Event - Aurora Chamber Reloaded": {
                                     "type": "and",
-                                    "data": []
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 1,
+                                                "index": 72,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 1,
+                                                "index": 64,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -18614,7 +18922,7 @@
                             "dock_type": 0,
                             "dock_weakness_index": 4,
                             "connections": {
-                                "Door to Aurora Chamber": {
+                                "Door to Zipline Station Bravo": {
                                     "type": "and",
                                     "data": []
                                 }
@@ -18636,6 +18944,45 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Door to Aurora Chamber": {
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 1,
+                                        "index": 64,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
+                                },
+                                "Door to Save Station A": {
+                                    "type": "and",
+                                    "data": []
+                                },
+                                "Event - Lift Activated": {
+                                    "type": "and",
+                                    "data": []
+                                }
+                            }
+                        },
+                        {
+                            "name": "Event - Lift Activated",
+                            "heal": false,
+                            "coordinates": null,
+                            "node_type": "event",
+                            "event_index": 64,
+                            "connections": {
+                                "Door to Zipline Station Bravo": {
+                                    "type": "and",
+                                    "data": []
+                                }
+                            }
+                        },
+                        {
+                            "name": "Event - Aurora Chamber Reloaded",
+                            "heal": false,
+                            "coordinates": null,
+                            "node_type": "event",
+                            "event_index": 63,
+                            "connections": {
+                                "Door to Aurora Chamber": {
                                     "type": "and",
                                     "data": []
                                 }
@@ -18647,7 +18994,7 @@
                     "name": "Aurora Chamber",
                     "in_dark_aether": false,
                     "asset_id": 3066396911819856814,
-                    "default_node_index": null,
+                    "default_node_index": 1,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -18691,13 +19038,27 @@
                                     "data": []
                                 },
                                 "Inside Aurora Chamber": {
-                                    "type": "resource",
-                                    "data": {
-                                        "type": 0,
-                                        "index": 33,
-                                        "amount": 1,
-                                        "negate": false
-                                    }
+                                    "type": "and",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 33,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -18731,7 +19092,7 @@
                                             "type": "resource",
                                             "data": {
                                                 "type": 1,
-                                                "index": 8,
+                                                "index": 63,
                                                 "amount": 1,
                                                 "negate": false
                                             }
@@ -18781,7 +19142,7 @@
                     "name": "Hoverplat Docking Site",
                     "in_dark_aether": false,
                     "asset_id": 10164050604229640228,
-                    "default_node_index": null,
+                    "default_node_index": 0,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -18799,9 +19160,68 @@
                             "dock_type": 0,
                             "dock_weakness_index": 0,
                             "connections": {
-                                "Room Center": {
+                                "Center Platform": {
                                     "type": "template",
                                     "data": "Use Screw Attack (Space Jump)"
+                                },
+                                "Out of Bounds": {
+                                    "type": "and",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 15,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 33,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 2,
+                                                "index": 5,
+                                                "amount": 3,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 2,
+                                                "index": 15,
+                                                "amount": 3,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 2,
+                                                "index": 12,
+                                                "amount": 3,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -18820,9 +19240,68 @@
                             "dock_type": 0,
                             "dock_weakness_index": 0,
                             "connections": {
-                                "Room Center": {
+                                "Center Platform": {
                                     "type": "template",
                                     "data": "Use Screw Attack (Space Jump)"
+                                },
+                                "Out of Bounds": {
+                                    "type": "and",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 15,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 33,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 2,
+                                                "index": 5,
+                                                "amount": 3,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 2,
+                                                "index": 15,
+                                                "amount": 3,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 2,
+                                                "index": 12,
+                                                "amount": 3,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -18834,14 +19313,14 @@
                             "pickup_index": 55,
                             "major_location": false,
                             "connections": {
-                                "Room Center": {
+                                "Center Platform": {
                                     "type": "and",
                                     "data": []
                                 }
                             }
                         },
                         {
-                            "name": "Room Center",
+                            "name": "Center Platform",
                             "heal": false,
                             "coordinates": null,
                             "node_type": "generic",
@@ -18874,8 +19353,37 @@
                                                 "amount": 1,
                                                 "negate": false
                                             }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
                                         }
                                     ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Out of Bounds",
+                            "heal": false,
+                            "coordinates": null,
+                            "node_type": "generic",
+                            "connections": {
+                                "Door to Barracks Lift": {
+                                    "type": "and",
+                                    "data": []
+                                },
+                                "Door to Junction": {
+                                    "type": "and",
+                                    "data": []
+                                },
+                                "Center Platform": {
+                                    "type": "and",
+                                    "data": []
                                 }
                             }
                         }
@@ -18885,7 +19393,7 @@
                     "name": "Skybridge Hera",
                     "in_dark_aether": false,
                     "asset_id": 10733512082794532665,
-                    "default_node_index": null,
+                    "default_node_index": 0,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -18920,6 +19428,24 @@
                                             "data": {
                                                 "type": 1,
                                                 "index": 7,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 1,
+                                                "index": 74,
                                                 "amount": 1,
                                                 "negate": false
                                             }
@@ -18972,12 +19498,35 @@
                                                 "amount": 1,
                                                 "negate": false
                                             }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
                                         }
                                     ]
                                 },
                                 "Pillar Platform": {
-                                    "type": "template",
-                                    "data": "Use Screw Attack (Space Jump)"
+                                    "type": "and",
+                                    "data": [
+                                        {
+                                            "type": "template",
+                                            "data": "Use Screw Attack (Space Jump)"
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 1,
+                                                "index": 74,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -19010,8 +19559,13 @@
                                     "data": "Use Screw Attack (Space Jump)"
                                 },
                                 "Pickup (Missile Expansion)": {
-                                    "type": "and",
-                                    "data": []
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 0,
+                                        "index": 32,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
                                 },
                                 "Event - Destroy Bridge": {
                                     "type": "and",
@@ -19038,7 +19592,7 @@
                     "name": "Zipline Station Charlie",
                     "in_dark_aether": false,
                     "asset_id": 17641492364836789457,
-                    "default_node_index": null,
+                    "default_node_index": 1,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -19056,18 +19610,27 @@
                             "dock_type": 0,
                             "dock_weakness_index": 0,
                             "connections": {
-                                "Pickup (Energy Tank)": {
+                                "Floating Platform (Powerworks Access)": {
+                                    "type": "template",
+                                    "data": "Use Screw Attack (Space Jump)"
+                                },
+                                "Out of Bounds": {
                                     "type": "and",
                                     "data": [
                                         {
-                                            "type": "template",
-                                            "data": "Use Screw Attack (Space Jump)"
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
                                         },
                                         {
                                             "type": "resource",
                                             "data": {
                                                 "type": 0,
-                                                "index": 34,
+                                                "index": 15,
                                                 "amount": 1,
                                                 "negate": false
                                             }
@@ -19078,6 +19641,33 @@
                                                 "type": 0,
                                                 "index": 33,
                                                 "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 2,
+                                                "index": 5,
+                                                "amount": 4,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 2,
+                                                "index": 15,
+                                                "amount": 4,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 2,
+                                                "index": 12,
+                                                "amount": 4,
                                                 "negate": false
                                             }
                                         }
@@ -19117,11 +19707,65 @@
                                             }
                                         },
                                         {
+                                            "type": "template",
+                                            "data": "Use Grapple Voltage (Lasso and Voltage)"
+                                        }
+                                    ]
+                                },
+                                "Out of Bounds": {
+                                    "type": "and",
+                                    "data": [
+                                        {
                                             "type": "resource",
                                             "data": {
                                                 "type": 0,
-                                                "index": 9,
+                                                "index": 32,
                                                 "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 15,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 33,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 2,
+                                                "index": 5,
+                                                "amount": 4,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 2,
+                                                "index": 15,
+                                                "amount": 4,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 2,
+                                                "index": 12,
+                                                "amount": 4,
                                                 "negate": false
                                             }
                                         }
@@ -19139,26 +19783,7 @@
                             "connections": {
                                 "Floating Platform (Powerworks Access)": {
                                     "type": "and",
-                                    "data": [
-                                        {
-                                            "type": "resource",
-                                            "data": {
-                                                "type": 0,
-                                                "index": 33,
-                                                "amount": 1,
-                                                "negate": false
-                                            }
-                                        },
-                                        {
-                                            "type": "resource",
-                                            "data": {
-                                                "type": 0,
-                                                "index": 34,
-                                                "amount": 1,
-                                                "negate": false
-                                            }
-                                        }
-                                    ]
+                                    "data": []
                                 }
                             }
                         },
@@ -19190,6 +19815,56 @@
                                                 "type": 0,
                                                 "index": 33,
                                                 "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
+                                },
+                                "Out of Bounds": {
+                                    "type": "and",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 33,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 34,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 2,
+                                                "index": 12,
+                                                "amount": 2,
                                                 "negate": false
                                             }
                                         }
@@ -19227,6 +19902,24 @@
                                                 "amount": 1,
                                                 "negate": false
                                             }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 10,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
                                         }
                                     ]
                                 },
@@ -19252,6 +19945,47 @@
                                             }
                                         }
                                     ]
+                                },
+                                "Out of Bounds": {
+                                    "type": "and",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 33,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 34,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 2,
+                                                "index": 12,
+                                                "amount": 2,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -19267,6 +20001,30 @@
                                     "data": []
                                 }
                             }
+                        },
+                        {
+                            "name": "Out of Bounds",
+                            "heal": false,
+                            "coordinates": null,
+                            "node_type": "generic",
+                            "connections": {
+                                "Door to Powerworks Access": {
+                                    "type": "and",
+                                    "data": []
+                                },
+                                "Door to Junction": {
+                                    "type": "and",
+                                    "data": []
+                                },
+                                "Floating Platform (Junction)": {
+                                    "type": "and",
+                                    "data": []
+                                },
+                                "Floating Platform (Powerworks Access)": {
+                                    "type": "and",
+                                    "data": []
+                                }
+                            }
                         }
                     ]
                 },
@@ -19274,7 +20032,7 @@
                     "name": "Powerworks Access",
                     "in_dark_aether": false,
                     "asset_id": 17854052165197892560,
-                    "default_node_index": null,
+                    "default_node_index": 0,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -19293,22 +20051,31 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Door to Powerworks": {
-                                    "type": "resource",
-                                    "data": {
-                                        "type": 1,
-                                        "index": 95,
-                                        "amount": 1,
-                                        "negate": false
-                                    }
+                                    "type": "and",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 1,
+                                                "index": 95,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
                                 },
                                 "Event - Barrier": {
-                                    "type": "resource",
-                                    "data": {
-                                        "type": 0,
-                                        "index": 9,
-                                        "amount": 1,
-                                        "negate": false
-                                    }
+                                    "type": "template",
+                                    "data": "Use Grapple Voltage (Lasso and Voltage)"
                                 }
                             }
                         },
@@ -19328,13 +20095,27 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Door to Zipline Station Charlie": {
-                                    "type": "resource",
-                                    "data": {
-                                        "type": 1,
-                                        "index": 95,
-                                        "amount": 1,
-                                        "negate": false
-                                    }
+                                    "type": "and",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 1,
+                                                "index": 95,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -19357,7 +20138,7 @@
                     "name": "Maintenance Shaft GP",
                     "in_dark_aether": false,
                     "asset_id": 15917923329011025717,
-                    "default_node_index": null,
+                    "default_node_index": 0,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -19376,8 +20157,13 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Door to Construction Bay": {
-                                    "type": "and",
-                                    "data": []
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 0,
+                                        "index": 15,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
                                 }
                             }
                         },
@@ -19397,8 +20183,13 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Door to Skybridge Hera": {
-                                    "type": "and",
-                                    "data": []
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 0,
+                                        "index": 15,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
                                 }
                             }
                         }
@@ -19408,7 +20199,7 @@
                     "name": "Ballista Lift",
                     "in_dark_aether": false,
                     "asset_id": 17014153014158531645,
-                    "default_node_index": null,
+                    "default_node_index": 1,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -19427,8 +20218,13 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Door to Construction Bay": {
-                                    "type": "and",
-                                    "data": []
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 1,
+                                        "index": 65,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
                                 }
                             }
                         },
@@ -19448,6 +20244,28 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Door to Ballista Storage": {
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 1,
+                                        "index": 65,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
+                                },
+                                "Event - Lift Activated": {
+                                    "type": "and",
+                                    "data": []
+                                }
+                            }
+                        },
+                        {
+                            "name": "Event - Lift Activated",
+                            "heal": false,
+                            "coordinates": null,
+                            "node_type": "event",
+                            "event_index": 65,
+                            "connections": {
+                                "Door to Construction Bay": {
                                     "type": "and",
                                     "data": []
                                 }
@@ -19459,7 +20277,7 @@
                     "name": "Security Tube",
                     "in_dark_aether": false,
                     "asset_id": 17487489647732344867,
-                    "default_node_index": null,
+                    "default_node_index": 1,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -19478,13 +20296,41 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Door to Security Station": {
-                                    "type": "resource",
-                                    "data": {
-                                        "type": 1,
-                                        "index": 76,
-                                        "amount": 1,
-                                        "negate": false
-                                    }
+                                    "type": "and",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "or",
+                                            "data": [
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 1,
+                                                        "index": 76,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 2,
+                                                        "index": 4,
+                                                        "amount": 2,
+                                                        "negate": false
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -19504,22 +20350,40 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Door to Skytram West": {
-                                    "type": "resource",
-                                    "data": {
-                                        "type": 1,
-                                        "index": 76,
-                                        "amount": 1,
-                                        "negate": false
-                                    }
-                                },
-                                "Event - Phazon Vines": {
                                     "type": "and",
                                     "data": [
                                         {
                                             "type": "resource",
                                             "data": {
                                                 "type": 0,
-                                                "index": 35,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 1,
+                                                "index": 76,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
+                                },
+                                "Event - Phazon Vines": {
+                                    "type": "and",
+                                    "data": [
+                                        {
+                                            "type": "template",
+                                            "data": "Enter Hypermode"
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 38,
                                                 "amount": 1,
                                                 "negate": false
                                             }
@@ -19528,7 +20392,7 @@
                                             "type": "resource",
                                             "data": {
                                                 "type": 0,
-                                                "index": 38,
+                                                "index": 32,
                                                 "amount": 1,
                                                 "negate": false
                                             }
@@ -19556,15 +20420,15 @@
                     "name": "Junction",
                     "in_dark_aether": false,
                     "asset_id": 2692588651293388340,
-                    "default_node_index": null,
+                    "default_node_index": 2,
                     "valid_starting_location": true,
                     "nodes": [
                         {
                             "name": "Door to Skybridge Hera",
                             "heal": false,
                             "coordinates": {
-                                "x": -57.84728240966797,
-                                "y": 6.9141387939453125e-06,
+                                "x": -57.85,
+                                "y": 0.0,
                                 "z": 4.5
                             },
                             "node_type": "dock",
@@ -19572,7 +20436,7 @@
                             "connected_area_asset_id": 10733512082794532665,
                             "connected_dock_index": 0,
                             "dock_type": 0,
-                            "dock_weakness_index": 0,
+                            "dock_weakness_index": 4,
                             "connections": {
                                 "Circle Room": {
                                     "type": "and",
@@ -19606,7 +20470,7 @@
                             "heal": false,
                             "coordinates": {
                                 "x": 57.85,
-                                "y": -0.0,
+                                "y": 0.0,
                                 "z": 4.5
                             },
                             "node_type": "dock",
@@ -19614,7 +20478,7 @@
                             "connected_area_asset_id": 3166066018495772067,
                             "connected_dock_index": 2,
                             "dock_type": 0,
-                            "dock_weakness_index": 4,
+                            "dock_weakness_index": 0,
                             "connections": {
                                 "Circle Room": {
                                     "type": "and",
@@ -19635,7 +20499,7 @@
                             "connected_area_asset_id": 2782037876215597956,
                             "connected_dock_index": 2,
                             "dock_type": 0,
-                            "dock_weakness_index": 3,
+                            "dock_weakness_index": 0,
                             "connections": {
                                 "Circle Room": {
                                     "type": "and",
@@ -19694,7 +20558,7 @@
                     "name": "Landing Site A",
                     "in_dark_aether": false,
                     "asset_id": 3381520513235092752,
-                    "default_node_index": null,
+                    "default_node_index": 1,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -19713,8 +20577,45 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Samus Ship": {
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 1,
+                                        "index": 68,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
+                                },
+                                "Event - Landing Site Unlocked": {
                                     "type": "and",
-                                    "data": []
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 10,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 1,
+                                                "index": 73,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -19722,7 +20623,29 @@
                             "name": "Samus Ship",
                             "heal": true,
                             "coordinates": null,
-                            "node_type": "generic",
+                            "node_type": "player_ship",
+                            "is_unlocked": {
+                                "type": "resource",
+                                "data": {
+                                    "type": 1,
+                                    "index": 68,
+                                    "amount": 1,
+                                    "negate": false
+                                }
+                            },
+                            "connections": {
+                                "Door to Security Station": {
+                                    "type": "and",
+                                    "data": []
+                                }
+                            }
+                        },
+                        {
+                            "name": "Event - Landing Site Unlocked",
+                            "heal": false,
+                            "coordinates": null,
+                            "node_type": "event",
+                            "event_index": 68,
                             "connections": {
                                 "Door to Security Station": {
                                     "type": "and",
@@ -19736,7 +20659,7 @@
                     "name": "Maintenance Shaft AU",
                     "in_dark_aether": false,
                     "asset_id": 722564631842201436,
-                    "default_node_index": null,
+                    "default_node_index": 0,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -19754,9 +20677,23 @@
                             "dock_type": 0,
                             "dock_weakness_index": 0,
                             "connections": {
-                                "Door to Spire Dock": {
-                                    "type": "and",
-                                    "data": []
+                                "Ledge": {
+                                    "type": "or",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 15,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "template",
+                                            "data": "Bomb Jump (Beginner) or Spring Space Jump (Beginner)"
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -19775,9 +20712,14 @@
                             "dock_type": 0,
                             "dock_weakness_index": 0,
                             "connections": {
-                                "Door to Aurora Chamber": {
-                                    "type": "and",
-                                    "data": []
+                                "Ledge": {
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 0,
+                                        "index": 15,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
                                 }
                             }
                         },
@@ -19796,9 +20738,51 @@
                             "dock_type": 0,
                             "dock_weakness_index": 0,
                             "connections": {
+                                "Ledge": {
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 0,
+                                        "index": 15,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "name": "Event - Aurora Chamber Reloaded",
+                            "heal": false,
+                            "coordinates": null,
+                            "node_type": "generic",
+                            "connections": {
+                                "Ledge": {
+                                    "type": "and",
+                                    "data": []
+                                }
+                            }
+                        },
+                        {
+                            "name": "Ledge",
+                            "heal": false,
+                            "coordinates": null,
+                            "node_type": "generic",
+                            "connections": {
                                 "Door to Aurora Chamber": {
                                     "type": "and",
                                     "data": []
+                                },
+                                "Door to Spire Dock": {
+                                    "type": "and",
+                                    "data": []
+                                },
+                                "Event - Aurora Chamber Reloaded": {
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 1,
+                                        "index": 72,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
                                 }
                             }
                         }
@@ -19808,7 +20792,7 @@
                     "name": "Construction Bay",
                     "in_dark_aether": false,
                     "asset_id": 2667502259855056433,
-                    "default_node_index": null,
+                    "default_node_index": 1,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -19855,26 +20839,63 @@
                                     "type": "or",
                                     "data": [
                                         {
-                                            "type": "resource",
-                                            "data": {
-                                                "type": 0,
-                                                "index": 8,
-                                                "amount": 1,
-                                                "negate": false
-                                            }
-                                        },
-                                        {
-                                            "type": "resource",
-                                            "data": {
-                                                "type": 0,
-                                                "index": 9,
-                                                "amount": 1,
-                                                "negate": false
-                                            }
-                                        },
-                                        {
                                             "type": "template",
                                             "data": "Use Screw Attack (Space Jump)"
+                                        },
+                                        {
+                                            "type": "and",
+                                            "data": [
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 0,
+                                                        "index": 32,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 0,
+                                                        "index": 10,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "or",
+                                                    "data": [
+                                                        {
+                                                            "type": "template",
+                                                            "data": "Use Grapple Voltage (Lasso and Voltage)"
+                                                        },
+                                                        {
+                                                            "type": "and",
+                                                            "data": [
+                                                                {
+                                                                    "type": "resource",
+                                                                    "data": {
+                                                                        "type": 0,
+                                                                        "index": 15,
+                                                                        "amount": 1,
+                                                                        "negate": false
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "resource",
+                                                                    "data": {
+                                                                        "type": 0,
+                                                                        "index": 8,
+                                                                        "amount": 1,
+                                                                        "negate": false
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -19900,7 +20921,7 @@
                     "name": "Main Docking Access",
                     "in_dark_aether": false,
                     "asset_id": 5767114369935179109,
-                    "default_node_index": null,
+                    "default_node_index": 1,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -19919,19 +20940,10 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Door to Main Docking Bay": {
-                                    "type": "and",
+                                    "type": "or",
                                     "data": [
                                         {
-                                            "type": "resource",
-                                            "data": {
-                                                "type": 1,
-                                                "index": 70,
-                                                "amount": 1,
-                                                "negate": false
-                                            }
-                                        },
-                                        {
-                                            "type": "or",
+                                            "type": "and",
                                             "data": [
                                                 {
                                                     "type": "resource",
@@ -19943,8 +20955,45 @@
                                                     }
                                                 },
                                                 {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 1,
+                                                        "index": 70,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "and",
+                                            "data": [
+                                                {
                                                     "type": "template",
                                                     "data": "Use Screw Attack (Space Jump)"
+                                                },
+                                                {
+                                                    "type": "or",
+                                                    "data": [
+                                                        {
+                                                            "type": "resource",
+                                                            "data": {
+                                                                "type": 1,
+                                                                "index": 70,
+                                                                "amount": 1,
+                                                                "negate": false
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "resource",
+                                                            "data": {
+                                                                "type": 2,
+                                                                "index": 11,
+                                                                "amount": 1,
+                                                                "negate": false
+                                                            }
+                                                        }
+                                                    ]
                                                 }
                                             ]
                                         }
@@ -20003,10 +21052,14 @@
                                     "type": "and",
                                     "data": [
                                         {
+                                            "type": "template",
+                                            "data": "Enter Hypermode"
+                                        },
+                                        {
                                             "type": "resource",
                                             "data": {
                                                 "type": 0,
-                                                "index": 35,
+                                                "index": 38,
                                                 "amount": 1,
                                                 "negate": false
                                             }
@@ -20015,7 +21068,7 @@
                                             "type": "resource",
                                             "data": {
                                                 "type": 0,
-                                                "index": 38,
+                                                "index": 32,
                                                 "amount": 1,
                                                 "negate": false
                                             }
@@ -20043,7 +21096,7 @@
                     "name": "Security Station",
                     "in_dark_aether": false,
                     "asset_id": 8195940946934839837,
-                    "default_node_index": null,
+                    "default_node_index": 1,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -20125,16 +21178,54 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Door to Escape Pod Bay Access": {
-                                    "type": "and",
-                                    "data": []
+                                    "type": "or",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 15,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "template",
+                                            "data": "Bomb Jump (Beginner) or Spring Space Jump (Beginner)"
+                                        }
+                                    ]
                                 },
                                 "Pickup (Ship Missile Expansion)": {
-                                    "type": "template",
-                                    "data": "Melt Objects (Plasma or Nova)"
+                                    "type": "and",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 1,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
                                 },
                                 "Spire Side": {
-                                    "type": "and",
-                                    "data": []
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 0,
+                                        "index": 32,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
                                 }
                             }
                         },
@@ -20183,12 +21274,17 @@
                                     "type": "and",
                                     "data": [
                                         {
-                                            "type": "template",
-                                            "data": "Use Screw Attack (Space Jump)"
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 1,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
                                         },
                                         {
                                             "type": "template",
-                                            "data": "Melt Objects (Plasma or Nova)"
+                                            "data": "Use Screw Attack (Space Jump)"
                                         }
                                     ]
                                 },
@@ -20197,8 +21293,13 @@
                                     "data": []
                                 },
                                 "Door to Landing Site A": {
-                                    "type": "and",
-                                    "data": []
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 0,
+                                        "index": 32,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
                                 }
                             }
                         }
@@ -20208,7 +21309,7 @@
                     "name": "Steambot Barracks",
                     "in_dark_aether": false,
                     "asset_id": 12622074872595627812,
-                    "default_node_index": null,
+                    "default_node_index": 1,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -20253,17 +21354,59 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Pickup (Missile Expansion)": {
-                                    "type": "resource",
-                                    "data": {
-                                        "type": 0,
-                                        "index": 34,
-                                        "amount": 1,
-                                        "negate": false
-                                    }
+                                    "type": "and",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 10,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 34,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
                                 },
                                 "Bottom Floor": {
                                     "type": "and",
-                                    "data": []
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 10,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -20343,6 +21486,15 @@
                                                 "amount": 1,
                                                 "negate": false
                                             }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
                                         }
                                     ]
                                 },
@@ -20403,7 +21555,7 @@
                     "name": "Ballista Storage",
                     "in_dark_aether": false,
                     "asset_id": 9955656508473190866,
-                    "default_node_index": null,
+                    "default_node_index": 0,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -20421,37 +21573,9 @@
                             "dock_type": 0,
                             "dock_weakness_index": 0,
                             "connections": {
-                                "Event - Defense Drone": {
-                                    "type": "resource",
-                                    "data": {
-                                        "type": 0,
-                                        "index": 7,
-                                        "amount": 1,
-                                        "negate": false
-                                    }
-                                },
-                                "Event - Steamlord": {
+                                "Bottom Floor": {
                                     "type": "and",
-                                    "data": [
-                                        {
-                                            "type": "resource",
-                                            "data": {
-                                                "type": 0,
-                                                "index": 9,
-                                                "amount": 1,
-                                                "negate": false
-                                            }
-                                        },
-                                        {
-                                            "type": "resource",
-                                            "data": {
-                                                "type": 1,
-                                                "index": 7,
-                                                "amount": 1,
-                                                "negate": false
-                                            }
-                                        }
-                                    ]
+                                    "data": []
                                 }
                             }
                         },
@@ -20463,14 +21587,9 @@
                             "pickup_index": 62,
                             "major_location": false,
                             "connections": {
-                                "Door to Ballista Lift": {
-                                    "type": "resource",
-                                    "data": {
-                                        "type": 0,
-                                        "index": 33,
-                                        "amount": 1,
-                                        "negate": false
-                                    }
+                                "Bottom Floor": {
+                                    "type": "and",
+                                    "data": []
                                 }
                             }
                         },
@@ -20482,14 +21601,9 @@
                             "pickup_index": 63,
                             "major_location": true,
                             "connections": {
-                                "Door to Ballista Lift": {
-                                    "type": "resource",
-                                    "data": {
-                                        "type": 0,
-                                        "index": 33,
-                                        "amount": 1,
-                                        "negate": false
-                                    }
+                                "Bottom Floor": {
+                                    "type": "and",
+                                    "data": []
                                 }
                             }
                         },
@@ -20513,11 +21627,68 @@
                             "node_type": "event",
                             "event_index": 14,
                             "connections": {
-                                "Pickup (Energy Cell)": {
+                                "Bottom Floor": {
+                                    "type": "and",
+                                    "data": []
+                                }
+                            }
+                        },
+                        {
+                            "name": "Bottom Floor",
+                            "heal": false,
+                            "coordinates": null,
+                            "node_type": "generic",
+                            "connections": {
+                                "Door to Ballista Lift": {
                                     "type": "resource",
                                     "data": {
-                                        "type": 0,
-                                        "index": 9,
+                                        "type": 1,
+                                        "index": 7,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
+                                },
+                                "Pickup (Energy Cell)": {
+                                    "type": "template",
+                                    "data": "Use Grapple Voltage (Lasso and Voltage)"
+                                },
+                                "Event - Defense Drone": {
+                                    "type": "or",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 7,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "and",
+                                            "data": [
+                                                {
+                                                    "type": "template",
+                                                    "data": "Shoot Phazite (X-Ray and Nova)"
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 2,
+                                                        "index": 3,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "Event - Steamlord": {
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 1,
+                                        "index": 7,
                                         "amount": 1,
                                         "negate": false
                                     }
@@ -20530,7 +21701,7 @@
                     "name": "Powerworks",
                     "in_dark_aether": false,
                     "asset_id": 265878788849725085,
-                    "default_node_index": null,
+                    "default_node_index": 0,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -20577,6 +21748,42 @@
                                                 "amount": 4,
                                                 "negate": false
                                             }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "or",
+                                            "data": [
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 0,
+                                                        "index": 15,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "template",
+                                                    "data": "Bomb Jump (Beginner) or Spring Space Jump (Beginner)"
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 2,
+                                                        "index": 10,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -20590,14 +21797,14 @@
                             "pickup_index": 64,
                             "major_location": true,
                             "connections": {
-                                "Door to Powerworks Access": {
+                                "Back Area": {
                                     "type": "and",
                                     "data": [
                                         {
                                             "type": "resource",
                                             "data": {
                                                 "type": 0,
-                                                "index": 34,
+                                                "index": 32,
                                                 "amount": 1,
                                                 "negate": false
                                             }
@@ -20606,30 +21813,7 @@
                                             "type": "resource",
                                             "data": {
                                                 "type": 0,
-                                                "index": 33,
-                                                "amount": 1,
-                                                "negate": false
-                                            }
-                                        }
-                                    ]
-                                },
-                                "Pickup (Missile Expansion)": {
-                                    "type": "and",
-                                    "data": [
-                                        {
-                                            "type": "resource",
-                                            "data": {
-                                                "type": 0,
                                                 "index": 34,
-                                                "amount": 1,
-                                                "negate": false
-                                            }
-                                        },
-                                        {
-                                            "type": "resource",
-                                            "data": {
-                                                "type": 0,
-                                                "index": 33,
                                                 "amount": 1,
                                                 "negate": false
                                             }
@@ -20646,9 +21830,62 @@
                             "pickup_index": 65,
                             "major_location": false,
                             "connections": {
+                                "Back Area": {
+                                    "type": "and",
+                                    "data": []
+                                }
+                            }
+                        },
+                        {
+                            "name": "Back Area",
+                            "heal": false,
+                            "coordinates": null,
+                            "node_type": "generic",
+                            "connections": {
                                 "Door to Powerworks Access": {
                                     "type": "and",
                                     "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 33,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 34,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
+                                },
+                                "Pickup (Missile Expansion)": {
+                                    "type": "and",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
                                         {
                                             "type": "resource",
                                             "data": {
@@ -20677,7 +21914,7 @@
                     "name": "Spire Dock",
                     "in_dark_aether": false,
                     "asset_id": 3166066018495772067,
-                    "default_node_index": null,
+                    "default_node_index": 0,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -20807,27 +22044,46 @@
                     "name": "Spire",
                     "in_dark_aether": false,
                     "asset_id": 6637485379588009329,
-                    "default_node_index": null,
+                    "default_node_index": 1,
                     "valid_starting_location": true,
                     "nodes": [
                         {
-                            "name": "Door to Podworks",
+                            "name": "Morph Ball Door to Podworks",
                             "heal": false,
                             "coordinates": {
-                                "x": 0.013180017471313477,
-                                "y": -16.735872268676758,
-                                "z": -2.7500100135803223
+                                "x": 0.01,
+                                "y": -16.74,
+                                "z": -2.75
                             },
                             "node_type": "dock",
                             "dock_index": 0,
                             "connected_area_asset_id": 6342289143695945848,
                             "connected_dock_index": 0,
-                            "dock_type": 0,
+                            "dock_type": 1,
                             "dock_weakness_index": 0,
                             "connections": {
-                                "Door to Spire Dock": {
+                                "Door to Escape Pod Bay": {
                                     "type": "and",
-                                    "data": []
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 1,
+                                                "index": 96,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -20846,13 +22102,14 @@
                             "dock_type": 0,
                             "dock_weakness_index": 0,
                             "connections": {
-                                "Door to Podworks": {
-                                    "type": "and",
-                                    "data": []
-                                },
-                                "Door to Escape Pod Bay": {
-                                    "type": "and",
-                                    "data": []
+                                "Morph Ball Door to Podworks": {
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 0,
+                                        "index": 32,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
                                 }
                             }
                         },
@@ -21025,11 +22282,11 @@
                     "name": "Podworks",
                     "in_dark_aether": false,
                     "asset_id": 6342289143695945848,
-                    "default_node_index": null,
+                    "default_node_index": 0,
                     "valid_starting_location": true,
                     "nodes": [
                         {
-                            "name": "Door to Spire",
+                            "name": "Morph Ball Door to Spire",
                             "heal": false,
                             "coordinates": {
                                 "x": 0.0,
@@ -21040,10 +22297,10 @@
                             "dock_index": 0,
                             "connected_area_asset_id": 6637485379588009329,
                             "connected_dock_index": 0,
-                            "dock_type": 0,
+                            "dock_type": 1,
                             "dock_weakness_index": 0,
                             "connections": {
-                                "Podworks Repair": {
+                                "Event - Podworks Repair": {
                                     "type": "and",
                                     "data": [
                                         {
@@ -21063,19 +22320,28 @@
                                                 "amount": 1,
                                                 "negate": false
                                             }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
                                         }
                                     ]
                                 }
                             }
                         },
                         {
-                            "name": "Podworks Repair",
+                            "name": "Event - Podworks Repair",
                             "heal": false,
                             "coordinates": null,
                             "node_type": "event",
                             "event_index": 96,
                             "connections": {
-                                "Door to Spire": {
+                                "Morph Ball Door to Spire": {
                                     "type": "and",
                                     "data": []
                                 }
@@ -21154,7 +22420,7 @@
                     "name": "Transit Hub",
                     "in_dark_aether": false,
                     "asset_id": 13389753286679728417,
-                    "default_node_index": null,
+                    "default_node_index": 0,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -21173,8 +22439,13 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Bomb Part Platform": {
-                                    "type": "and",
-                                    "data": []
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 0,
+                                        "index": 32,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
                                 }
                             }
                         },
@@ -21194,13 +22465,27 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Door to Hub Access": {
-                                    "type": "resource",
-                                    "data": {
-                                        "type": 0,
-                                        "index": 33,
-                                        "amount": 1,
-                                        "negate": false
-                                    }
+                                    "type": "and",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 33,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
                                 },
                                 "Bomb Part Platform": {
                                     "type": "resource",
@@ -21255,8 +22540,13 @@
                             "node_type": "generic",
                             "connections": {
                                 "Door to Hub Access": {
-                                    "type": "and",
-                                    "data": []
+                                    "type": "resource",
+                                    "data": {
+                                        "type": 0,
+                                        "index": 32,
+                                        "amount": 1,
+                                        "negate": false
+                                    }
                                 },
                                 "Door to Barracks Access": {
                                     "type": "resource",
@@ -21268,12 +22558,64 @@
                                     }
                                 },
                                 "Door to Zipline Station Bravo": {
-                                    "type": "template",
-                                    "data": "Melt Objects (Plasma or Nova)"
+                                    "type": "and",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 1,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        }
+                                    ]
                                 },
                                 "Pickup (Missile Expansion)": {
                                     "type": "and",
-                                    "data": []
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "or",
+                                            "data": [
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 0,
+                                                        "index": 10,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 2,
+                                                        "index": 4,
+                                                        "amount": 2,
+                                                        "negate": false
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 },
                                 "Event - Bomb Part 3": {
                                     "type": "and",
@@ -21288,13 +22630,8 @@
                                             }
                                         },
                                         {
-                                            "type": "resource",
-                                            "data": {
-                                                "type": 0,
-                                                "index": 44,
-                                                "amount": 1,
-                                                "negate": false
-                                            }
+                                            "type": "template",
+                                            "data": "Use Ship Grapple (Command Visor and Ship Grapple)"
                                         },
                                         {
                                             "type": "resource",
@@ -21337,7 +22674,7 @@
                     "name": "Zipline Station Bravo",
                     "in_dark_aether": false,
                     "asset_id": 10719110688968561272,
-                    "default_node_index": null,
+                    "default_node_index": 0,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -21356,13 +22693,77 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Door to Aurora Lift": {
-                                    "type": "resource",
-                                    "data": {
-                                        "type": 0,
-                                        "index": 8,
-                                        "amount": 1,
-                                        "negate": false
-                                    }
+                                    "type": "or",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 8,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "and",
+                                            "data": [
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 0,
+                                                        "index": 32,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 0,
+                                                        "index": 15,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 0,
+                                                        "index": 33,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 2,
+                                                        "index": 5,
+                                                        "amount": 4,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 2,
+                                                        "index": 15,
+                                                        "amount": 4,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 2,
+                                                        "index": 12,
+                                                        "amount": 4,
+                                                        "negate": false
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 },
                                 "Door to Transit Hub": {
                                     "type": "and",
@@ -21382,6 +22783,15 @@
                                                 "type": 0,
                                                 "index": 4,
                                                 "amount": 4,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
                                                 "negate": false
                                             }
                                         }
@@ -21405,13 +22815,77 @@
                             "dock_weakness_index": 0,
                             "connections": {
                                 "Door to Barracks Lift": {
-                                    "type": "resource",
-                                    "data": {
-                                        "type": 0,
-                                        "index": 8,
-                                        "amount": 1,
-                                        "negate": false
-                                    }
+                                    "type": "or",
+                                    "data": [
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 8,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "and",
+                                            "data": [
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 0,
+                                                        "index": 32,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 0,
+                                                        "index": 15,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 0,
+                                                        "index": 33,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 2,
+                                                        "index": 5,
+                                                        "amount": 4,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 2,
+                                                        "index": 15,
+                                                        "amount": 4,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 2,
+                                                        "index": 12,
+                                                        "amount": 4,
+                                                        "negate": false
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 }
                             }
                         },
@@ -21442,7 +22916,7 @@
                     "name": "Escape Pod Bay Access",
                     "in_dark_aether": false,
                     "asset_id": 10147956754909178375,
-                    "default_node_index": null,
+                    "default_node_index": 0,
                     "valid_starting_location": true,
                     "nodes": [
                         {
@@ -24165,10 +25639,6 @@
                                     "type": "and",
                                     "data": [
                                         {
-                                            "type": "template",
-                                            "data": "Use Screw Attack (Space Jump)"
-                                        },
-                                        {
                                             "type": "resource",
                                             "data": {
                                                 "type": 2,
@@ -24194,6 +25664,47 @@
                                                 "amount": 2,
                                                 "negate": false
                                             }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 15,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "or",
+                                            "data": [
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 0,
+                                                        "index": 16,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 1,
+                                                        "index": 88,
+                                                        "amount": 1,
+                                                        "negate": true
+                                                    }
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -24511,24 +26022,6 @@
                                 "Door to Broken Lift": {
                                     "type": "template",
                                     "data": "Use Screw Attack (Space Jump)"
-                                },
-                                "Pickup (Missile Expansion)": {
-                                    "type": "and",
-                                    "data": [
-                                        {
-                                            "type": "template",
-                                            "data": "Use Screw Attack (Space Jump)"
-                                        },
-                                        {
-                                            "type": "resource",
-                                            "data": {
-                                                "type": 1,
-                                                "index": 97,
-                                                "amount": 1,
-                                                "negate": false
-                                            }
-                                        }
-                                    ]
                                 }
                             }
                         },
@@ -24555,10 +26048,6 @@
                                     "type": "and",
                                     "data": [
                                         {
-                                            "type": "template",
-                                            "data": "Use Screw Attack (Space Jump)"
-                                        },
-                                        {
                                             "type": "resource",
                                             "data": {
                                                 "type": 1,
@@ -24566,6 +26055,61 @@
                                                 "amount": 1,
                                                 "negate": false
                                             }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 15,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "resource",
+                                            "data": {
+                                                "type": 0,
+                                                "index": 32,
+                                                "amount": 1,
+                                                "negate": false
+                                            }
+                                        },
+                                        {
+                                            "type": "or",
+                                            "data": [
+                                                {
+                                                    "type": "resource",
+                                                    "data": {
+                                                        "type": 0,
+                                                        "index": 16,
+                                                        "amount": 1,
+                                                        "negate": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "and",
+                                                    "data": [
+                                                        {
+                                                            "type": "resource",
+                                                            "data": {
+                                                                "type": 0,
+                                                                "index": 33,
+                                                                "amount": 1,
+                                                                "negate": false
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "resource",
+                                                            "data": {
+                                                                "type": 2,
+                                                                "index": 5,
+                                                                "amount": 2,
+                                                                "negate": false
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
